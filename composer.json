@@ -22,5 +22,5 @@
                 "Mustaq\\Dbbackup\\DBbackupServiceProvider"
             ]
         }
-    },
+    }
 }
