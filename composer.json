@@ -1,0 +1,26 @@
+{
+    "name": "mustaq/dbbackup",
+    "description": "Simple laravel console command to backup database and sent it to respective user's email.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mustaque Ahemmed",
+            "email": "helstq@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload-dev": {
+        "psr-4": {
+            "Mustaq\\Dbbackup\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mustaq\\Dbbackup\\DBbackupServiceProvider"
+            ]
+        }
+    },
+}
