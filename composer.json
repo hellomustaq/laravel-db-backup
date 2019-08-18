@@ -13,7 +13,7 @@
     "require": {},
     "autoload-dev": {
         "psr-4": {
-            "Mustaq\\Dbbackup\\": "src/"
+            "Mustaq\\DBackup\\": "src/"
         }
     },
     "extra": {

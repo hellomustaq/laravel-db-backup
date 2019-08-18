@@ -3,6 +3,7 @@
 namespace Mustaq\DBbackup;
 
 use Illuminate\Support\ServiceProvider;
+use Mustaq\DBbackup\Console\BackupDatabase;
 
 class DBbackupServiceProvider extends ServiceProvider
 {
@@ -10,6 +11,10 @@ class DBbackupServiceProvider extends ServiceProvider
 	public function boot()
     {
         $this->loadRoutesFrom(__DIR__.'/routes/web.php');
+
+        $this->commands([
+            BackupDatabase::class,
+        ]);
     }
 
     /**
