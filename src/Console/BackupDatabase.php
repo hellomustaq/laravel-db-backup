@@ -61,11 +61,37 @@ class BackupDatabase extends Command
 
             $this->process->mustRun();
 
+            // $fileName = $this->getLastModifiedFileName(storage_path('app/backups/'));
+            // $data=[];
+
+            // Mail::send('mail', $data, function($message) use ($fileName)
+            // {
+            //     $message->to('hellomstq@gmail.com');
+            //     $message->subject('Database daily backup');
+            //     $message->attach(public_path('backup/'.$fileName));
+            // });
+
             $this->info('The database backup has been proceed successfully!');
         } catch (ProcessFailedException $exception) {
             $this->error($exception->getMessage());
             $this->error('The database backup process has been failed!');
         }
+    }
+
+    public function getLastModifiedFileName($path){
+        $latest_ctime = 0;
+        $latest_filename = '';    
+
+        $d = dir($path);
+        while (false !== ($entry = $d->read())) {
+          $filepath = "{$path}/{$entry}";
+          // could do also other checks than just checking whether the entry is a file
+          if (is_file($filepath) && filectime($filepath) > $latest_ctime) {
+            $latest_ctime = filectime($filepath);
+            $latest_filename = $entry;
+          }
+        }
+        return $latest_filename;
     }
 
 }
